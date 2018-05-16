@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'articles',
     'cart',
     'coupons',
+    'crispy_forms',
     'simple_scaffold',
 ]
 
@@ -139,3 +140,5 @@ LOGIN_URL = '/accounts/login'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 LOGIN_REDIRECT_URL = '/'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

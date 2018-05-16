@@ -41,12 +41,17 @@
                             {% endif %}
                             {% if perms.coupons.can_change %}
                             <li class="nav-item">
-                                <a class="nav-link" href="{% url 'coupon:coupon_list' %}">Add coupons</a>
+                                <a class="nav-link" href="{% url 'coupon:coupon_list_a' %}">Add coupons</a>
                             </li>
                             {% endif %}
                             <li class="nav-item">
+                                <a class="nav-link" href="{% url 'coupon:coupon_list' %}">Coupons</a>
+                            </li>
+                            {% if user.is_authenticated %}
+                            <li class="nav-item">
                                 <a class="nav-link" href="{% url 'cart:cart_detail' %}">Cart</a>
                             </li>
+                            {% endif %}
                             {% if user.is_authenticated %}
                             <li class="nav-item">
                                 <a class="nav-link" href="/accounts/logout">Log Out</a>

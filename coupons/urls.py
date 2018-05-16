@@ -6,6 +6,7 @@ app_name = 'coupons'
 urlpatterns = [
 
     path('', views.ListCouponView.as_view(), name='coupon_list'),
+    path('list', views.ListACouponView.as_view(), name='coupon_list_a'),
     path('<int:pk>', views.DetailCouponView.as_view(),
          name='coupon_details'),
     path('add', views.CreateCouponView.as_view(),

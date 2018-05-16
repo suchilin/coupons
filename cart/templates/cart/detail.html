@@ -7,15 +7,15 @@
 {% endblock %}
 
 {% block content %}
-<h1>{% trans "Your shopping cart" %}</h1>
+<h1>Your shopping cart"</h1>
 <table class="cart">
-    <thead>
+    <thead class="table">
         <tr>
-            <th>{% trans "Product" %}</th>
-            <th>{% trans "Quantity" %}</th>
-            <th>{% trans "Remove" %}</th>
-            <th>{% trans "Unit price" %}</th>
-            <th>{% trans "Price" %}</th>
+            <th>"Product"</th>
+            <th>"Quantity"</th>
+            <th>"Remove"</th>
+            <th>"Unit price"</th>
+            <th>"Price"</th>
         </tr>
     </thead>
     <tbody>
@@ -68,8 +68,6 @@
     <input type="submit" value="{% trans "Apply" %}">
     {% csrf_token %}
 </form>
-<p class="text-right">
-<a href="{% url "article_list" %}" class="button light">{% trans "Continue shopping" %}</a>
-</p>
+<a href="{% url "article_list" %} class="btn btn-primary">{% trans "Continue shopping" %}</a>
 
 {% endblock %}

@@ -1,11 +1,12 @@
 {% extends "base.html" %}
+{% load crispy_forms_tags %}
 {% load i18n %}
 
 {% block page-title %} {%trans 'Create a' %} coupon - {{ coupon }}{% endblock %}
 
 {% block content %}
 <form action="" method="post">{% csrf_token %}
-    {{ form.as_p }}
+    {{ form|crispy }}
     <input type='submit' value='Save'/>
 </form>
 {% endblock %}

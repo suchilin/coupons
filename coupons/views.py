@@ -28,10 +28,15 @@ class CouponApplyView(View):
         return redirect('cart:cart_detail')
 
 
-class ListCouponView(views.LoginRequiredMixin,
-                     views.PermissionRequiredMixin,
-                     ListView):
+class ListACouponView(views.LoginRequiredMixin,
+                      views.PermissionRequiredMixin,
+                      ListView):
     permission_required = "coupons.change_coupons"
+    model = Coupon
+    template_name = 'coupon/lista.html'
+
+
+class ListCouponView(ListView):
     model = Coupon
     template_name = 'coupon/list.html'
 

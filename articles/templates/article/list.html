@@ -5,8 +5,8 @@
 {% block page-title %}article - {{ article }} {% endblock %}
 
 
+{% block content %}
 <div class="row">
-    {% block content %}
     {% for article in object_list %}
     <div class="col-sm-3">
         <div class="card">
@@ -14,7 +14,7 @@
             <div class="card-body">
                 <h5 class="card-title">{{ article }}</h5>
                 <h3>Price: ${{ article.price }}</h3>
-                <p class="card-text">{{ article.description }}</p>
+                <p class="card-text">{{ article.description|slice:":100" }}</p>
                 <a href="{% url 'article_details' article.id %}" class="btn btn-primary">Details</a>
             </div>
         </div>

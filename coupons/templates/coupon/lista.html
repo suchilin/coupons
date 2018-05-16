@@ -9,7 +9,8 @@
 
 <div class="row">
     <div class="col-sm-12">
-        <h1>Coupons availables</h1>
+        <h1>Coupons</h1>
+        <a href="{% url 'coupon:coupon_add' %}" class="btn btn-primary">{%trans 'Add an coupon' %}</a></br></br></br>
         <table class="table">
             <tr>
                 <td>Code</td>
@@ -25,8 +26,11 @@
                 <td>{{ coupon.valid_to }}</td>
                 <td>{{ coupon.discount }}%</td>
                 <td>
+                    <a href="{% url 'coupon:coupon_details' coupon.id %}" class="btn btn-primary">Details</a> <a href="{% url 'coupon:coupon_update' coupon.id %}" class="btn btn-success">{% trans 'Update'%}</a> <a href="{% url 'coupon:coupon_delete' coupon.id %}" class="btn btn-danger">{% trans 'Delete' %}</a></li>
                 </td>
+
             </tr>
+
             {% endfor %}
         </table>
 

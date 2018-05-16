@@ -1,14 +1,35 @@
 {% extends "base.html" %}
+{% load static %}
 {% load i18n %}
 
 {% block page-title %}article - {{ article }} {% endblock %}
 
 {% block content %}
 <h1>{{ article }}</h1>
-<a href="{% url 'article_add' %}">{%trans 'Add' %} {{ article }}</a>
+<a href="{% url 'article_add' %}" class="btn btn-primary">{%trans 'Add an article' %}</a></br></br></br>
 <ul>
     {% for article in object_list %}
-        <li><a href="{% url 'article_details' article.id %}">{{ article }}</a>  - <a href="{% url 'article_update' article.id %}">{% trans 'Update'%}</a> - <a href="{% url 'article_delete' article.id %}">{% trans 'Delete' %}</a></li>
-    {% endfor %}
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="media">
+                        <img class="align-self-start mr-3" src="{% static 'images/nia.png' %}" alt="Generic placeholder image" width="200">
+                        <div class="media-body">
+                            <h5 class="mt-0">{{ article }}</h5>
+                            <p>{{ article.description }}</p>
+                            <h3>{{ article.price }}</h3>
+
+                            <a href="{% url 'article_details' article.id %}" class="btn btn-primary">Details</a> <a href="{% url 'article_update' article.id %}" class="btn btn-success">{% trans 'Update'%}</a> <a href="{% url 'article_delete' article.id %}" class="btn btn-danger">{% trans 'Delete' %}</a></li>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
 </ul>
+
+
+
 {% endblock %}
