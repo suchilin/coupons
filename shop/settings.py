@@ -128,9 +128,14 @@ STATIC_URL = '/static/'
 
 CART_SESSION_ID = 'cart'
 
-ACCOUNT_ACTIVATION_DAYS = 7  # One-week activation window; you may, of course, use a different value.
+# One-week activation window; you may, of course, use a different value.
+ACCOUNT_ACTIVATION_DAYS = 7
 REGISTRATION_AUTO_LOGIN = True  # Automatically log the user in.
 
 SITE_ID = 2
 
 LOGIN_URL = '/accounts/login'
+
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
+LOGIN_REDIRECT_URL = '/'

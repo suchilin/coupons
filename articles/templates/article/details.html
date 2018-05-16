@@ -1,20 +1,35 @@
 {% extends "base.html" %}
+{% load static %}
 {% load i18n %}
 
 {% block page-title %}article - {{ article }} {% endblock %}
 
-{% block content %}
-<h1>{{ article }}</h1>
-<div>
-    <div>Description: {{ article.description }}</div>
-    <div>Price: {{ article.price }}</div>
-    <div>Name: {{ article.name }}</div>
-</div>
 
 
-<form action="{% url "cart:cart_add" article.id %}" method="post">
-    {% csrf_token %}
-    {{ form2.as_p }}
-    <input type='submit' value="Add to cart"/>
-</form>
-{% endblock %}
+
+<div class="row">
+    {% block content %}
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="media">
+                    <img class="align-self-start mr-3" src="{% static 'images/nia.png' %}" alt="Generic placeholder image" width="200">
+                    <div class="media-body">
+                        <h5 class="mt-0">Top-aligned media</h5>
+                        <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+                        <p>Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+
+                        <form action="{% url "cart:cart_add" article.id %}" method="post">
+                            {% csrf_token %}
+                            {{ form2.as_p }}
+                            <input type='submit' class="btn btn-primary" value="Add to cart"/>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        {% endblock %}
+    </div>

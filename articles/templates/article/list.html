@@ -1,13 +1,24 @@
 {% extends "base.html" %}
+{% load static %}
 {% load i18n %}
 
 {% block page-title %}article - {{ article }} {% endblock %}
 
-{% block content %}
-<h1>{{ article }}</h1>
-<ul>
+
+<div class="row">
+    {% block content %}
     {% for article in object_list %}
-    <li><a href="{% url 'article_details' article.id %}">{{ article }}</a>
-        {% endfor %}
-</ul>
+    <div class="col-sm-3">
+        <div class="card">
+            <img class="card-img-top" src="{% static 'images/nia.png' %}" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{ article }}</h5>
+                <h3>Price: ${{ article.price }}</h3>
+                <p class="card-text">{{ article.description }}</p>
+                <a href="{% url 'article_details' article.id %}" class="btn btn-primary">Details</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
 {% endblock %}
