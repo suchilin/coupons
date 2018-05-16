@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block page-title %}coupon - {{ coupon }} {% endblock %}
+
+{% block content %}
+<h1>{{ coupon }}</h1>
+<div>
+    <div>Valid From: {{ coupon.valid_from }}</div>
+    <div>Valid To: {{ coupon.valid_to }}</div>
+    <div>Code: {{ coupon.code }}</div>
+    <div>Discount: {{ coupon.discount }}</div>
+    <div>Active: {{ coupon.active }}</div>
+</div>
+{% endblock %}

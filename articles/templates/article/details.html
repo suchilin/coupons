@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block page-title %}article - {{ article }} {% endblock %}
+
+{% block content %}
+<h1>{{ article }}</h1>
+<div>
+    <div>Description: {{ article.description }}</div>
+    <div>Price: {{ article.price }}</div>
+    <div>Name: {{ article.name }}</div>
+</div>
+
+
+<form action="{% url "cart:cart_add" article.id %}" method="post">
+    {% csrf_token %}
+    {{ form2.as_p }}
+    <input type='submit' value="Add to cart"/>
+</form>
+{% endblock %}

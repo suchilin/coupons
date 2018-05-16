@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block page-title %}coupon - {{ coupon }} {% endblock %}
+
+{% block content %}
+<h1>{{ coupon }}</h1>
+<a href="{% url 'coupon:coupon_add' %}">{%trans 'Add' %} {{ coupon }}</a>
+<ul>
+    {% for coupon in object_list %}
+    <li><a href="{% url 'coupon:coupon_details' coupon.id %}">{{ coupon }}</a>  - <a href="{% url 'coupon:coupon_update' coupon.id %}">{% trans 'Update'%}</a> - <a href="{% url 'coupon:coupon_delete' coupon.id %}">{% trans 'Delete' %}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}

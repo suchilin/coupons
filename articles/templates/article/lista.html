@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block page-title %}article - {{ article }} {% endblock %}
+
+{% block content %}
+<h1>{{ article }}</h1>
+<a href="{% url 'article_add' %}">{%trans 'Add' %} {{ article }}</a>
+<ul>
+    {% for article in object_list %}
+        <li><a href="{% url 'article_details' article.id %}">{{ article }}</a>  - <a href="{% url 'article_update' article.id %}">{% trans 'Update'%}</a> - <a href="{% url 'article_delete' article.id %}">{% trans 'Delete' %}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}
